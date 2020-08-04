@@ -1,0 +1,42 @@
+﻿@page
+@model EnergyUI.Pages.Containers.EditDriverModel
+@{
+    ViewData["Title"] = "EditDriver";
+}
+
+<h1>Editar Conductores</h1>
+<body>
+
+
+    <form class="mt-3" method="post">
+        <div class="d-flex justify-content-end p-2">
+            <button type="submit" class="btn btn-primary m-2">Actualizar</button>
+            <a asp-page="/Containers/CDriver" class="btn btn-secondary m-2">Cancelar</a>
+        </div>
+        <input hidden asp-for="Driver.Id" />
+        <div class="form-group">
+            <label>Nombre del conductor</label>
+            <input type="text" class="form-control" asp-for="Driver.DriverName" />
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>INE</label>
+                <input type="text" class="form-control" asp-for="Driver.INE" />
+            </div>
+            <div class="form-group col-md-6">
+                <label>Licencia</label>
+                <input type="text" class="form-control" asp-for="Driver.License" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>NSS</label>
+                <input type="text" class="form-control" asp-for="Driver.NSS" />
+            </div>
+        </div>
+
+    </form>
+
+</body>
+
+

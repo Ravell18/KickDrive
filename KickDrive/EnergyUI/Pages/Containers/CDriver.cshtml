@@ -1,0 +1,51 @@
+﻿@page
+@model EnergyUI.Pages.Containers.CDriverModel
+@{
+    ViewData["Title"] = "CDriver";
+}
+
+<h1>CDriver</h1>
+@if (Model.Drivers.Any())
+{
+    <table class="table table-info table-striped">
+        <!--Head-->
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">@Html.DisplayNameFor(x => x.Drivers.FirstOrDefault().DriverName)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Drivers.FirstOrDefault().INE)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Drivers.FirstOrDefault().License)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Drivers.FirstOrDefault().NSS)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Drivers.FirstOrDefault().FrontPhoto)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Drivers.FirstOrDefault().ProfilePhoto)</th>
+            </tr>
+        </thead>
+        <!--Body-->
+        <tbody>
+            @foreach (var item in Model.Drivers)
+            {
+            <tr>
+                <td scope="row">@Html.DisplayFor(m => item.DriverName)</td>
+                <td>@Html.DisplayFor(m => item.INE)</td>
+                <td>@Html.DisplayFor(m => item.License)</td>
+                <td>@Html.DisplayFor(m => item.NSS)</td>
+                <td>@Html.DisplayFor(m => item.FrontPhoto)</td>
+                <td>@Html.DisplayFor(m => item.ProfilePhoto)</td>
+                <td>
+                    <a asp-page="/Containers/EditDriver" asp-route-ID="@item.Id" class="btn btn-success">Visualizar</a>
+                </td>
+                <td>
+                    <button type="submit" asp-page-handler="Delete" asp-route-ID="@item.Id" onclick="return confirm('¿Desea eliminar el registro?')" class="btn btn-danger">Eliminar</button>
+                </td>
+            </tr>
+            }
+        </tbody>
+
+    </table>
+
+}
+else
+{
+    <div class="mx-auto text-center">
+        <span class="text-danger">No se encontraron conductores registrados.</span>
+    </div>
+}

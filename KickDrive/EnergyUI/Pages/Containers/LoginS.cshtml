@@ -1,0 +1,61 @@
+﻿@page
+@model EnergyUI.Pages.Containers.LoginSModel
+@{
+    ViewData["Title"] = "LoginS";
+}
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="~/css/estilos.css">
+</head>
+<body>
+    <form method="post">
+
+
+        <div class="wrap-login100 p-b-160 p-t-50">
+            <span class="login100-form-title p-b-43">
+                Iniciar Sesion
+            </span>
+
+
+            <div class="wrap-input100 rs1 validate-input" data-validate="Username is required">
+                <input class="form-control" type="text" asp-for="@Model.user.UserName">
+                <span class="label-input100">Usuario</span>
+            </div>
+
+
+
+            <div class="wrap-input100 rs2 validate-input" data-validate="Password is required">
+                <input class="form-control" type="password" asp-for="@Model.user.Password">
+                <span class="label-input100">Contraseña</span>
+            </div>
+            <div class="row">
+
+
+                <div class="col-sm-4">
+
+                    <div class="form-group">
+                        <br>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Iniciar sesion </button>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+
+                    <div class="form-group">
+                        <br>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+</body>
+

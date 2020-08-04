@@ -1,0 +1,73 @@
+﻿@page
+@model EnergyUI.Pages.Containers.CVehiculosModel
+@{
+    ViewData["Title"] = "CVehiculos";
+}
+
+<h1>Consultas de Vehiculos</h1>
+@if (Model.Vehicles.Any())
+{
+    <table class="table table-info table-striped">
+        <!--Head-->
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">@Html.DisplayNameFor(x => x.Vehicles.FirstOrDefault().Id)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Vehicles.FirstOrDefault().NProp)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Vehicles.FirstOrDefault().Brand)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Vehicles.FirstOrDefault().Model)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Vehicles.FirstOrDefault().NSerie)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Vehicles.FirstOrDefault().TComb)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Vehicles.FirstOrDefault().TipServ)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Vehicles.FirstOrDefault().NMotor)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Vehicles.FirstOrDefault().DocLeg)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Vehicles.FirstOrDefault().TipLlantas)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Vehicles.FirstOrDefault().CapPerson)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Vehicles.FirstOrDefault().CapTon)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Vehicles.FirstOrDefault().Placas)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Vehicles.FirstOrDefault().OfExp)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Vehicles.FirstOrDefault().NRegist)</th>
+            </tr>
+        </thead>
+        <!--Body-->
+        <tbody>
+            @foreach (var item in Model.Vehicles)
+            {
+            <tr>
+                <td scope="row">@Html.DisplayFor(m => item.Id)</td>
+                <td>@Html.DisplayFor(m => item.NProp)</td>
+                <td>@Html.DisplayFor(m => item.Brand)</td>
+                <td>@Html.DisplayFor(m => item.Model)</td>
+                <td>@Html.DisplayFor(m => item.NSerie)</td>
+                <td>@Html.DisplayFor(m => item.TComb)</td>
+                <td>@Html.DisplayFor(m => item.TipServ)</td>
+                <td>@Html.DisplayFor(m => item.NMotor)</td>
+                <td>@Html.DisplayFor(m => item.DocLeg)</td>
+                <td>@Html.DisplayFor(m => item.TipLlantas)</td>
+                <td>@Html.DisplayFor(m => item.CapPerson)</td>
+                <td>@Html.DisplayFor(m => item.CapTon)</td>
+                <td>@Html.DisplayFor(m => item.Placas)</td>
+                <td>@Html.DisplayFor(m => item.OfExp)</td>
+                <td>@Html.DisplayFor(m => item.NRegist)</td>
+                <td>
+                    <a asp-page="/Containers/EditVehicles" asp-route-ID="@item.Id" class="btn btn-success">Visualizar</a>
+                </td>
+                <td>
+                    <button type="submit" asp-page-handler="Deletes" asp-route-ID="@item.Id" onclick="return confirm('¿Desea eliminar el registro?')" class="btn btn-danger">Eliminar</button>
+                </td>
+            </tr>
+
+            }
+
+        </tbody>
+
+    </table>
+
+}
+else
+{
+    <div class="mx-auto text-center">
+        <span class="text-danger">No se encontraron vehiculos registrados.</span>
+    </div>
+}
+
+
