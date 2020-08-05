@@ -29,5 +29,15 @@ namespace EnergyUI.Pages.Containers
                 return RedirectToPage($"/NotFount");
             }
         }
+        public IActionResult OnPost(Vehicles Vehicles, string button)
+        {
+
+            if (button == "Eliminar")
+            {
+                repository.Delete(Vehicles);
+            }
+
+            return RedirectToPage($"/Containers/CVehiculos");
+        }
     }
 }

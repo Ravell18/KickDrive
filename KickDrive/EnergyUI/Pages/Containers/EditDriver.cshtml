@@ -3,6 +3,16 @@
 @{
     ViewData["Title"] = "EditDriver";
 }
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('.custom-file-input').on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(fileName);
+            });
+        });
+    </script>
+}
 
 <h1>Editar Conductores</h1>
 <body>
@@ -10,7 +20,8 @@
 
     <form class="mt-3" method="post">
         <div class="d-flex justify-content-end p-2">
-            <button type="submit" class="btn btn-primary m-2">Actualizar</button>
+            <button type="submit" class="btn btn-primary m-2" name="button" value="Editar">Actualizar</button>
+            <button type="submit" class="btn btn-danger m-2" name="button" value="Eliminar">Eliminar</button>
             <a asp-page="/Containers/CDriver" class="btn btn-secondary m-2">Cancelar</a>
         </div>
         <input hidden asp-for="Driver.Id" />
@@ -34,7 +45,16 @@
                 <input type="text" class="form-control" asp-for="Driver.NSS" />
             </div>
         </div>
-
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <label for="exampleFormControlFile4">Fotografia de perfil</label>
+                <div class="custom-file">
+                    <input type="file" asp-for="ProfilePhoto" class="custom-file-input form-control" lang="es">
+                    <label class="custom-file-label" for="ProfilePhoto">Elige tu foto</label>
+                    <input hidden asp-for="Driver.ProfilePhoto" />
+                </div>
+            </div>
+        </div>
     </form>
 
 </body>

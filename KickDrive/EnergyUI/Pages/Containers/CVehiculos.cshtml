@@ -51,9 +51,7 @@
                 <td>
                     <a asp-page="/Containers/EditVehicles" asp-route-ID="@item.Id" class="btn btn-success">Visualizar</a>
                 </td>
-                <td>
-                    <button type="submit" asp-page-handler="Deletes" asp-route-ID="@item.Id" onclick="return confirm('¿Desea eliminar el registro?')" class="btn btn-danger">Eliminar</button>
-                </td>
+               
             </tr>
 
             }

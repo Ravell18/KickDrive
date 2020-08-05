@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using EnergyController.Models;
 using EnergyController.Services;
+using Microsoft.AspNetCore.Hosting;
 
 namespace EnergyUI.Pages.Containers
 {
@@ -28,6 +29,16 @@ namespace EnergyUI.Pages.Containers
             {
                 return RedirectToPage($"/NotFount");
             }
+        }
+        public IActionResult OnPost(Driver Driver, string button)
+        {
+
+            if (button == "Eliminar")
+            {
+                repository.Delete(Driver);
+            }
+
+            return RedirectToPage($"/Containers/CDriver");
         }
     }
 }

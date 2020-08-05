@@ -13,22 +13,19 @@
     <form method="post">
 
 
-        <div class="wrap-login100 p-b-160 p-t-50">
-            <span class="login100-form-title p-b-43">
-                Iniciar Sesion
-            </span>
-
-
-            <div class="wrap-input100 rs1 validate-input" data-validate="Username is required">
-                <input class="form-control" type="text" asp-for="@Model.user.UserName">
+        <div class="login-box">
+            <h1>Iniciar Sesion</h1>
+ 
+            <div class="textbox" data-validate="Username is required">
                 <span class="label-input100">Usuario</span>
+                <input class="form-control" type="text" asp-for="@Model.user.UserName">
             </div>
 
 
 
-            <div class="wrap-input100 rs2 validate-input" data-validate="Password is required">
-                <input class="form-control" type="password" asp-for="@Model.user.Password">
+            <div class="textbox" data-validate="Password is required">
                 <span class="label-input100">Contraseña</span>
+                <input class="form-control" type="password" asp-for="@Model.user.Password">
             </div>
             <div class="row">
 

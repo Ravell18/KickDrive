@@ -15,7 +15,6 @@
                 <th scope="col">@Html.DisplayNameFor(x => x.Drivers.FirstOrDefault().INE)</th>
                 <th scope="col">@Html.DisplayNameFor(x => x.Drivers.FirstOrDefault().License)</th>
                 <th scope="col">@Html.DisplayNameFor(x => x.Drivers.FirstOrDefault().NSS)</th>
-                <th scope="col">@Html.DisplayNameFor(x => x.Drivers.FirstOrDefault().FrontPhoto)</th>
                 <th scope="col">@Html.DisplayNameFor(x => x.Drivers.FirstOrDefault().ProfilePhoto)</th>
             </tr>
         </thead>
@@ -28,14 +27,11 @@
                 <td>@Html.DisplayFor(m => item.INE)</td>
                 <td>@Html.DisplayFor(m => item.License)</td>
                 <td>@Html.DisplayFor(m => item.NSS)</td>
-                <td>@Html.DisplayFor(m => item.FrontPhoto)</td>
                 <td>@Html.DisplayFor(m => item.ProfilePhoto)</td>
                 <td>
                     <a asp-page="/Containers/EditDriver" asp-route-ID="@item.Id" class="btn btn-success">Visualizar</a>
                 </td>
-                <td>
-                    <button type="submit" asp-page-handler="Delete" asp-route-ID="@item.Id" onclick="return confirm('¿Desea eliminar el registro?')" class="btn btn-danger">Eliminar</button>
-                </td>
+                
             </tr>
             }
         </tbody>

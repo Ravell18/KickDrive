@@ -30,7 +30,7 @@ namespace EnergyController.Services
             obj.Status = false;
 
             var entity = entities.Attach(obj);
-            entity.State = EntityState.Modified;
+            entity.State = EntityState.Deleted;
             context.SaveChanges();
         }
         public T Get(int id)
